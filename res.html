@@ -1,0 +1,65 @@
+#include <stdio.h>
+    void main()
+    {
+    
+        short Maths, Physics, Chemistry , Biology , English , Heighest , Total , Result ;
+    
+        printf("Enter the value of Maths : ");
+        scanf("%hd", &Maths);
+    
+        printf("Enter the value of physics : ");
+        scanf("%hd", &Physics);
+    
+        printf("Enter the value of Chemistry : ");
+        scanf("%hd", &Chemistry);
+    
+        printf("Enter the value of Biology : ");
+        scanf("%hd", &Biology);
+    
+        printf("Enter the value of English : ");
+        scanf("%hd", &English);
+    
+        Heighest = Maths>Physics?Maths>Chemistry?Maths>Biology?Biology>English?Biology:English:Maths>English?Maths:English:Chemistry>Biology?Chemistry>English?Chemistry:English:Biology>English?Biology:English:Physics>Chemistry?Physics>Biology?Physics>English?English:Physics:Biology>English?Biology:English:Chemistry>Biology?Chemistry>English?Chemistry:English:Biology>English?Biology:English;
+        printf("The Heighest mark is : %hd\n",Heighest);
+    
+        Total = Maths + Physics + Chemistry + Biology + English ;
+        printf("The Total of marks  : %hd\n",Total);
+    
+        Result = Total/5;
+        printf("The Percentage  is  : %hd\n",Result); 
+    
+        if(Result>33)
+        {
+            printf("Congratulations.... You Are Passed\n");
+        }
+        else
+        {
+           printf("Need to Work Hard....Better Luck Next Time\n"); 
+        }
+    
+        if(Result>33 && Result<50)
+        {
+           printf(" You Got D Grade\n"); 
+        }
+    
+        else if(Result>50 && Result<75)
+        {
+           printf(" You Got C Grade\n"); 
+        }
+    
+        else if(Result>76 && Result<85)
+        {
+           printf(" You Got B Grade\n"); 
+        }
+    
+        else if(Result>86 && Result<95)
+        {
+           printf(" You Got A Grade\n"); 
+        }
+    
+        else if(Result>95 && Result<100)
+        {
+           printf(" You Got Distiction\n"); 
+        }
+    
+    }

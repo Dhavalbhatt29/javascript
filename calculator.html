@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+
+<body>
+    <div class="main">
+        <input class="text1" type="text" id="text" placeholder="0"><br>
+
+        <div class="first">
+            <div class="f1"><button onclick="digit('%')">%</button></div>
+            <div class="f2"><button onclick="backspace()">CE</button></div>
+            <div class="f3"><button onclick="clearEntry()">C</button></div>
+            <div class="f4"><button onclick="clearAll()">x</button></div>
+        </div>
+
+        <div class="first">
+            <div class="f1"><button onclick="digit('7')">7</button></div>
+            <div class="f2"><button onclick="digit('8')">8</button></div>
+            <div class="f3"><button onclick="digit('9')">9</button></div>
+            <div class="f4"><button onclick="setOperator('/')">/</button></div>
+        </div>
+        <div class="first">
+            <div class="f1"><button onclick="digit('4')">4</button></div>
+            <div class="f2"><button onclick="digit('5')">5</button></div>
+            <div class="f3"><button onclick="digit('6')">6</button></div>
+            <div class="f4"><button onclick="setOperator('*')">*</button></div>
+        </div>
+        <div class="first">
+            <div class="f1"><button onclick="digit('1')">1</button></div>
+            <div class="f2"><button onclick="digit('2')">2</button></div>
+            <div class="f3"><button onclick="digit('3')">3</button></div>
+            <div class="f4"><button onclick="setOperator('-')">-</button></div>
+        </div>
+        <div class="first">
+            <div class="f1"><button onclick="digit('0')">0</button></div>
+            <div class="f2"><button onclick="digit('.')">.</button></div>
+            <div class="f3"><button onclick="calculate()">=</button></div>
+            <div class="f4"><button onclick="setOperator('+')">+</button></div>
+        </div>
+    </div>
+
+    <script>
+        let txt = document.getElementById('text');
+        let dig1 = null;
+        let operator = null;
+        let dig2 = false;
+
+        function digit(character) {
+            if (txt.value === '0' && character !== '.') {
+                txt.value = character;
+            } else {
+                txt.value += character;
+            }
+        }
+
+        function clearEntry() {
+            txt.value = '0';
+        }
+
+        function backspace() {
+            txt.value = txt.value.slice(0, -1) || '0';
+        }
+
+        function clearAll() {
+            txt.value = '0';
+            dig1 = null;
+            operator = null;
+            dig2 = false;
+        }
+
+        function setOperator(op) {
+            if (dig1 === null) {
+                dig1 = parseFloat(txt.value);
+            } else if (operator && dig2) {
+                calculate();
+            }
+            operator = op;
+            dig2 = true;
+            txt.value = '0';
+        }
+
+        function calculate() {
+            if (operator === null) {
+                return;
+            }
+            let dig2 = parseFloat(txt.value);
+            if (isNaN(dig2)) {
+                return;
+            }
+            switch (operator) {
+                case '+':
+                    dig1 += dig2;
+                    break;
+                case '-':
+                    dig1 -= dig2;
+                    break;
+                case '*':
+                    dig1 *= dig2;
+                    break;
+                case '/':
+                    dig1 /= dig2;
+                    break;
+                case '%':
+                    dig1 %= dig2;
+                    break;
+            }
+            txt.value = dig1;
+            operator = null;
+            dig2 = false;
+        }
+    </script>
+</body>
+
+</html>

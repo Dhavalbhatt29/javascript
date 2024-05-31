@@ -1,0 +1,17 @@
+.mainbox{
+    border:0px solid black;
+    height:300px;
+    width:300px;
+}
+.box{
+    border: 1px solid black;
+    height:100px;
+    width:300px;
+    display: flex;
+}
+
+.box1{
+    border:1px solid black;
+    height:100px;
+    width:100px;
+}

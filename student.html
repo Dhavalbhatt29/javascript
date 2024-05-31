@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    <script>
+        let maths = parseFloat (prompt("Enter The Marks of Maths:"));
+        let physics = parseFloat (prompt("Enter The Marks of Physics:"));
+        let chemistry = parseFloat (prompt("Enter The Marks of Chemistry:"));
+        let biology =  parseFloat(prompt("Enter The Marks of Biology:"));
+        let english = parseFloat(prompt("Enter The Marks of English:"));
+        
+        document.write("Your Obtained Marks:<br>");
+        document.write("Maths: " + maths + "<br>");
+        document.write("Physics: " + physics + "<br>");
+        document.write("Chemistry: " + chemistry + "<br>");
+        document.write("Biology: " + biology + "<br>");
+        document.write("English: " + english + "<br>");
+
+        let total = parseFloat(maths + physics + chemistry + biology + english);
+        document.write("Total of All subjects: " + total + "<br>");
+
+        let avg = parseFloat (total/5);
+        document.write("Average of all subjects : " + avg + "<br>");
+
+        if(confirm(avg > 33 )){
+            document.write("You are Passed");
+        }
+        else
+        {
+            document.write("You are Failed");
+        } 
+        // alert("Hello\nHow are you?");  
+        
+
+    </script>
+</body>
+</html>

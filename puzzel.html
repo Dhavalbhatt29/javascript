@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle</title>
+    <link rel="stylesheet" href="puzzel.css">
+</head>
+
+<body>
+    <div class="mainbox">
+        <div class="box">
+            <button>
+                <div class="box1" id="b1" onclick="swapboxes(b1)">1</div>
+            </button>
+            <button>
+                <div class="box1" id="b2" onclick="swapboxes(b2)"></div>
+            </button>
+            <button>
+                <div class="box1" id="b3" onclick="swapboxes(b3)">3</div>
+            </button>
+        </div>
+        <div class="box">
+            <button>
+                <div class="box1" id="b4" onclick="swapboxes(b4)">4</div>
+            </button>
+            <button>
+                <div class="box1" id="b5" onclick="swapboxes(b5)">5</div>
+            </button>
+            <button>
+                <div class="box1" id="b6" onclick="swapboxes(b6)">6</div>
+            </button>
+        </div>
+        <div class="box">
+            <button>
+                <div class="box1" id="b7" onclick="swapboxes(b7)">7</div>
+            </button>
+            <button>
+                <div class="box1" id="b8" onclick="swapboxes(b8)">8</div>
+            </button>
+            <button>
+                <div class="box1" id="b9" onclick="swapboxes(b9)">2</div>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function swapbox(boxid){
+            let x = document.getElementById('b1').value;
+            document.getElementById('b2').value = x;
+        }
+        
+    </script>
+</body>
+
+</html>

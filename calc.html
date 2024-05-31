@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calulator</title>
+</head>
+
+<body>
+
+    <input type="text" id="A" placeholder="Enter the value of A : "><br><br>
+    <br>
+    <input type="text" id="B" placeholder="Enter the value of B : ">
+    <br>
+    <br>
+    <br>
+
+    <button onclick="sum()">+</button>
+    <button onclick="sub()">-</button>
+    <button onclick="mul()">*</button>
+    <button onclick="divide()">/</button>
+    <br>
+    <br>
+    <br>
+
+    <p id="result">Your Ans is : </p>
+
+    <script>
+        function getValues() {
+            let a = parseFloat(document.getElementById('A').value);
+            let b = parseFloat(document.getElementById('B').value);
+            return [a, b];
+
+
+        }
+
+        function sum() {
+            let [a, b] = getValues();
+            let result = a + b;
+            document.getElementById('result').innerText = " Your Ans is : " + result;
+        }
+
+        function sub() {
+            let [a, b] = getValues();
+            let result = a - b;
+            document.getElementById('result').innerText =  " Your Ans is : " + result;
+        }
+
+        function mul() {
+            let [a, b] = getValues();
+            let result = a * b;
+            document.getElementById('result').innerText =  " Your Ans is : " + result;
+        }
+
+        function divide() {
+            let [a, b] = getValues();
+            let result = a / b;
+            document.getElementById("result").innerText =  " Your Ans is : " + result;
+        }
+    </script>
+
+</body>
+
+</html>
