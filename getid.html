@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Puzzle Game</title>
+    <style>
+        .puzzle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+        .tile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="puzzle-grid">
+        <div class="tile" id="tile1">1</div>
+        <div class="tile" id="tile2">2</div>
+        <div class="tile" id="tile3">3</div>
+        <div class="tile" id="tile4">4</div>
+        <div class="tile" id="tile5">5</div>
+        <div class="tile" id="tile6">6</div>
+        <div class="tile" id="tile7">7</div>
+        <div class="tile" id="tile8">8</div>
+        <div class="tile" id="tile9">9</div>
+    </div>
+
+    <script>
+        let firstTile = null;
+
+        document.querySelectorAll('.tile').forEach(tile => {
+            tile.addEventListener('click', () => {
+                if (firstTile === null) {
+                    firstTile = tile;
+                    tile.classList.add('highlight');
+                } else {
+                    swapTiles(firstTile, tile);
+                    firstTile.classList.remove('highlight');
+                    firstTile = null;
+                }
+            });
+        });
+
+        function swapTiles(tile1, tile2) {
+            let temp = tile1.innerText;
+            tile1.innerText = tile2.innerText;
+            tile2.innerText = temp;
+        }
+    </script>
+</body>
+</html>
