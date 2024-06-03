@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <link rel="stylesheet" href="stopwatch.css">
+</head>
+<body>
+    <div class="maindiv">
+        <div class="box" id="hr">00 : Hrs</div>
+        <div class="box" id="min">00 : Mins</div>
+        <div class="box" id="sec">00 : Sec</div>
+        <div class="box" id="ms">00 : Ms</div>
+    </div>
+    <div class="buttons">
+        <button id="start" onclick="startTimer()">Start</button>
+        <button id="pause" onclick="pauseTimer()">Pause</button>
+        <button id="reset" onclick="resetTimer()">Reset</button>
+    </div>
+
+    <script>
+        let timer;
+        let isRunning = false;
+        let startTime;
+        let elapsedTime = 0;
+
+        function updateTime() {
+            const currentTime = Date.now();
+            const diff = currentTime - startTime + elapsedTime;
+
+            const ms = Math.floor((diff % 1000) / 10);
+            const sec = Math.floor((diff / 1000) % 60);
+            const min = Math.floor((diff / (1000 * 60)) % 60);
+            const hr = Math.floor(diff / (1000 * 60 * 60));
+
+            document.getElementById('ms').innerText = (ms < 10 ? "0" : "") + ms + " : Ms";
+            document.getElementById('sec').innerText = (sec < 10 ? "0" : "") + sec + " : Sec";
+            document.getElementById('min').innerText = (min < 10 ? "0" : "") + min + " : Mins";
+            document.getElementById('hr').innerText = (hr < 10 ? "0" : "") + hr + " : Hrs";
+        }
+
+        function startTimer() {
+            if (!isRunning) {
+                startTime = Date.now();
+                timer = setInterval(updateTime, 10);
+                isRunning = true;
+            }
+        }
+
+        function pauseTimer() {
+            if (isRunning) {
+                clearInterval(timer);
+                elapsedTime += Date.now() - startTime;
+                isRunning = false;
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            isRunning = false;
+            elapsedTime = 0;
+            document.getElementById('ms').innerText = "00 : Ms";
+            document.getElementById('sec').innerText = "00 : Sec";
+            document.getElementById('min').innerText = "00 : Mins";
+            document.getElementById('hr').innerText = "00 : Hrs";
+        }
+    </script>
+</body>
+</html>
